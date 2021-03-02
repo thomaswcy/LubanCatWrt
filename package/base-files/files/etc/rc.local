@@ -1,0 +1,17 @@
+# Put your custom commands here that should be executed once
+# the system init finished. By default this file does nothing.
+
+echo "nameserver 114.114.114.114">/tmp/resolv.confrm -f /var/lock/opkg.lockopkg update
+
+opkg update
+#opkg remove uhttpd --force-removal-of-dependent-packages
+#opkg install uhttpd
+#rm -rf /var/lock/opkg.lock
+
+echo 85 > /sys/class/gpio/export
+echo out > /sys/class/gpio/gpio85/direction
+echo 1 > /sys/class/gpio/gpio85/value
+sleep 1
+echo 0 > /sys/class/gpio/gpio85/value
+
+exit 0
