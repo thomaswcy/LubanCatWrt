@@ -179,14 +179,14 @@ Index: linux-5.4.71/arch/arm64/boot/dts/rockchip/rk3328-doornet-2.dts
 +	assigned-clocks = <&cru SCLK_MAC2IO>, <&cru SCLK_MAC2IO_EXT>;
 +	assigned-clock-parents = <&gmac_clk>, <&gmac_clk>;
 +	clock_in_out = "input";
-+	phy-handle = <&rtl8211e>;
++	phy-handle = <&rtl8211f>;
 +	phy-mode = "rgmii";
 +	phy-supply = <&vcc_io_33>;
 +	pinctrl-0 = <&rgmiim1_pins>;
 +	pinctrl-names = "default";
-+	rx_delay = <0x18>;
++	rx_delay = <0x54>;
 +	snps,aal;
-+	tx_delay = <0x24>;
++	tx_delay = <0x20>;
 +	status = "okay";
 +
 +	mdio {
@@ -194,8 +194,8 @@ Index: linux-5.4.71/arch/arm64/boot/dts/rockchip/rk3328-doornet-2.dts
 +		#address-cells = <1>;
 +		#size-cells = <0>;
 +
-+		rtl8211e: ethernet-phy@1 {
-+			compatible = "ethernet-phy-id001c.c915",
++		rtl8211f: ethernet-phy@1 {
++			compatible = "ethernet-phy-id001c.c916",
 +				     "ethernet-phy-ieee802.3-c22";
 +			reg = <1>;
 +			pinctrl-0 = <&eth_phy_reset_pin>;
