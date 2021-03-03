@@ -2,7 +2,7 @@
 
 logger ACTION=$ACTION DEVTYPE=$DEVTYPE PRODUCT=$PRODUCT 
 
-WLAN_DIR=/root/.rtl8821cu/
+WLAN_DIR=/root/.wlan/
 if { [ "${DEVTYPE}" = usb_device ] || [ "${DEVTYPE}" = usb_interface ] ;} && { [ "${PRODUCT}" = "bda/c811/200" ] || [ "${PRODUCT}" = "bda/c820/200" ] ;}; then
         MODULE=rtl8821cu
     if [ "${ACTION}" = bind ]; then
