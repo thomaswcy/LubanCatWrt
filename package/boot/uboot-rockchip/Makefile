@@ -21,11 +21,11 @@ define U-Boot/Default
   HIDDEN:=1
 endef
 
-define U-Boot/doornet-2-rk3328
+define U-Boot/doornet1-rk3328
   BUILD_SUBTARGET:=armv8
-  NAME:=Doornet 2
+  NAME:=Doornet1
   BUILD_DEVICES:= \
-    embedfire_doornet-2
+    embedfire_doornet1
   DEPENDS:=+PACKAGE_u-boot-dorrnet-2-rk3328:arm-trusted-firmware-rockchip
   PKG_BUILD_DEPENDS:=arm-trusted-firmware-rockchip
   ATF:=rk3328_bl31.elf
@@ -33,7 +33,7 @@ define U-Boot/doornet-2-rk3328
 endef  
 
 UBOOT_TARGETS := \
-  doornet-2-rk3328
+  doornet1-rk3328
 
 UBOOT_CONFIGURE_VARS += USE_PRIVATE_LIBGCC=yes
 

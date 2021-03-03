@@ -8,14 +8,14 @@ Index: u-boot-2020.07/arch/arm/dts/Makefile
  	rk3328-rock64.dtb \
 -	rk3328-rock-pi-e.dtb
 +	rk3328-rock-pi-e.dtb \
-+	rk3328-doornet-2.dtb
++	rk3328-doornet1.dtb
  
  dtb-$(CONFIG_ROCKCHIP_RK3368) += \
  	rk3368-lion.dtb \
-Index: u-boot-2020.07/arch/arm/dts/rk3328-doornet-2-u-boot.dtsi
+Index: u-boot-2020.07/arch/arm/dts/rk3328-doornet1-u-boot.dtsi
 ===================================================================
 --- /dev/null
-+++ u-boot-2020.07/arch/arm/dts/rk3328-doornet-2-u-boot.dtsi
++++ u-boot-2020.07/arch/arm/dts/rk3328-doornet1-u-boot.dtsi
 @@ -0,0 +1,35 @@
 +// SPDX-License-Identifier: GPL-2.0+
 +/*
@@ -52,10 +52,10 @@ Index: u-boot-2020.07/arch/arm/dts/rk3328-doornet-2-u-boot.dtsi
 +	u-boot,dm-spl;
 +};
 +
-Index: u-boot-2020.07/arch/arm/dts/rk3328-doornet-2.dts
+Index: u-boot-2020.07/arch/arm/dts/rk3328-doornet1.dts
 ===================================================================
 --- /dev/null
-+++ u-boot-2020.07/arch/arm/dts/rk3328-doornet-2.dts
++++ u-boot-2020.07/arch/arm/dts/rk3328-doornet1.dts
 @@ -0,0 +1,335 @@
 +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
 +/*
@@ -69,8 +69,8 @@ Index: u-boot-2020.07/arch/arm/dts/rk3328-doornet-2.dts
 +#include "rk3328.dtsi"
 +
 +/ {
-+	model = "Embedfire Doornet 2";
-+	compatible = "embedfire,doornet-2", "rockchip,rk3328";
++	model = "Embedfire DoorNet1";
++	compatible = "embedfire,doornet1", "rockchip,rk3328";
 +
 +	chosen {
 +		stdout-path = "serial2:1500000n8";
@@ -128,17 +128,17 @@ Index: u-boot-2020.07/arch/arm/dts/rk3328-doornet-2.dts
 +
 +		sys {
 +			gpios = <&gpio0 RK_PA2 GPIO_ACTIVE_HIGH>;
-+			label = "doornet-2:red:sys";
++			label = "doornet1:red:sys";
 +		};
 +
 +		lan {
 +			gpios = <&gpio2 RK_PB7 GPIO_ACTIVE_HIGH>;
-+			label = "doornet-2:green:lan";
++			label = "doornet1:green:lan";
 +		};
 +
 +		wan {
 +			gpios = <&gpio2 RK_PC2 GPIO_ACTIVE_HIGH>;
-+			label = "doornet-2:green:wan";
++			label = "doornet1:green:wan";
 +		};
 +	};
 +
@@ -401,16 +401,16 @@ Index: u-boot-2020.07/board/rockchip/evb_rk3328/MAINTAINERS
  F:      arch/arm/dts/rk3328-rock-pi-e.dts
  F:      arch/arm/dts/rk3328-rock-pi-e-u-boot.dtsi
 +
-+DOORNET-2-RK3328
-+M:      XiaoJian Li <1291015298@qq.com>
++DoorNet1-RK3328
++M:      Jiawen He <hjw0415@outlook.com>
 +S:      Maintained
-+F:      configs/doornet-2-rk3328_defconfig
-+F:      arch/arm/dts/rk3328-doornet-2-u-boot.dtsi
-+F:      arch/arm/dts/rk3328-doornet-2.dts
-Index: u-boot-2020.07/configs/doornet-2-rk3328_defconfig
++F:      configs/doornet1-rk3328_defconfig
++F:      arch/arm/dts/rk3328-doornet1-u-boot.dtsi
++F:      arch/arm/dts/rk3328-doornet1.dts
+Index: u-boot-2020.07/configs/doornet1-rk3328_defconfig
 ===================================================================
 --- /dev/null
-+++ u-boot-2020.07/configs/doornet-2-rk3328_defconfig
++++ u-boot-2020.07/configs/doornet1-rk3328_defconfig
 @@ -0,0 +1,100 @@
 +CONFIG_ARM=y
 +CONFIG_ARCH_ROCKCHIP=y
@@ -433,7 +433,7 @@ Index: u-boot-2020.07/configs/doornet-2-rk3328_defconfig
 +CONFIG_FIT=y
 +CONFIG_FIT_VERBOSE=y   
 +CONFIG_SPL_LOAD_FIT=y
-+CONFIG_DEFAULT_FDT_FILE="rockchip/rk3328-doornet-2.dtb"
++CONFIG_DEFAULT_FDT_FILE="rockchip/rk3328-doornet1.dtb"
 +CONFIG_MISC_INIT_R=y
 +# CONFIG_DISPLAY_CPUINFO is not set
 +CONFIG_DISPLAY_BOARDINFO_LATE=y
@@ -452,7 +452,7 @@ Index: u-boot-2020.07/configs/doornet-2-rk3328_defconfig
 +CONFIG_CMD_TIME=y
 +CONFIG_SPL_OF_CONTROL=y
 +CONFIG_TPL_OF_CONTROL=y
-+CONFIG_DEFAULT_DEVICE_TREE="rk3328-doornet-2"
++CONFIG_DEFAULT_DEVICE_TREE="rk3328-doornet1"
 +CONFIG_OF_SPL_REMOVE_PROPS="clock-names interrupt-parent assigned-clocks assigned-clock-rates assigned-clock-parents"
 +CONFIG_TPL_OF_PLATDATA=y
 +CONFIG_ENV_IS_IN_MMC=y

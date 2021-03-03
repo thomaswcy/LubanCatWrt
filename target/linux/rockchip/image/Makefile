@@ -78,16 +78,16 @@ define Device/Default
   DEVICE_DTS = rockchip/$$(SOC)-$(lastword $(subst _, ,$(1)))
 endef
 
-define Device/embedfire_doornet-2
+define Device/embedfire_doornet1
   DEVICE_VENDOR := EmbedFire
-  DEVICE_MODEL := Doornet 2
+  DEVICE_MODEL := DoorNet1
   SOC := rk3328
-  DEVICE_DTS := rockchip/rk3328-doornet-2
-  UBOOT_DEVICE_NAME := doornet-2-rk3328
-  IMAGE/sysupgrade.img.gz := boot-common | boot-script doornet-2 | pine64-img | gzip | append-metadata
+  DEVICE_DTS := rockchip/rk3328-doornet1
+  UBOOT_DEVICE_NAME := doornet1-rk3328
+  IMAGE/sysupgrade.img.gz := boot-common | boot-script doornet1 | pine64-img | gzip | append-metadata
   DEVICE_PACKAGES := kmod-usb-net-rtl8152 kmod-usb-serial-cp210x rtl8723bu-firmware
 endef
-TARGET_DEVICES += embedfire_doornet-2
+TARGET_DEVICES += embedfire_doornet1
 
 # include $(SUBTARGET).mk
 
