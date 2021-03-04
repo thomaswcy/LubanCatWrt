@@ -2,16 +2,16 @@
 
 logger ACTION=$ACTION DEVTYPE=$DEVTYPE PRODUCT=$PRODUCT 
 
-WLAN_DIR=/root/.wlan
+INIT_DIR=/root/.init
 if { [ "${DEVTYPE}" = usb_device ] || [ "${DEVTYPE}" = usb_interface ] ;} && { [ "${PRODUCT}" = "bda/c811/200" ] || [ "${PRODUCT}" = "bda/c820/200" ] ;}; then
         MODULE=rtl8821cu
     if [ "${ACTION}" = bind ]; then
-        mkdir -p ${WLAN_DIR}
-        if [ -e ${WLAN_DIR}/init ]; then
+        mkdir -p ${INIT_DIR}
+        if [ -e ${INIT_DIR}/WLAN ]; then
             logger "Already initialized ${MODULE}"
             /etc/init.d/network restart
         else
-            touch ${WLAN_DIR}/init
+            touch ${INIT_DIR}/WLAN
             logger "Init ${MODULE}"
 
             # Enable wifi and change ssid
