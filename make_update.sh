@@ -8,7 +8,7 @@ echo '**************beginning update and install feeds***********'
 
 echo '**************application DoorNet1 defconfig***************'
 #使用DoorNet1默认配置
-cat defconfig >> .config
+cat defconfig > .config
 make defconfig
 
 echo '**************download all packages***********************'
