@@ -56,7 +56,7 @@ Index: u-boot-2020.07/arch/arm/dts/rk3328-doornet1.dts
 ===================================================================
 --- /dev/null
 +++ u-boot-2020.07/arch/arm/dts/rk3328-doornet1.dts
-@@ -0,0 +1,335 @@
+@@ -0,0 +1,339 @@
 +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
 +/*
 + * Copyright (c) 2020 David Bauer <mail@david-bauer.net>
@@ -389,6 +389,10 @@ Index: u-boot-2020.07/arch/arm/dts/rk3328-doornet1.dts
 +};
 +
 +&usb_host0_ohci {
++	status = "okay";
++};
++
++&pwm2 {
 +	status = "okay";
 +};
 +
