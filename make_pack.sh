@@ -9,6 +9,6 @@ cp ./bin/targets/rockchip/armv8/openwrt-rockchip-armv8-embedfire_doornet1-ext4-s
 cp ./bin/targets/rockchip/armv8/openwrt-rockchip-armv8-embedfire_doornet1-squashfs-sysupgrade.img.gz ./bin/${dirdate}/openwrt-embedfire_doornet1-squashfs-${namedate}.img.gz
 cp ./bin/targets/rockchip/armv8/openwrt-rockchip-armv8-embedfire_doornet1.manifest ./bin/${dirdate}/openwrt-embedfire_doornet1.manifest
 
-rm -f ./bin/${dirdate}/sha256sum
-sha256sum ./bin/${dirdate}/* > ./bin/${dirdate}/sha256sum
+rm -f ./bin/${dirdate}/sha256sum.txt
+sha256sum ./bin/${dirdate}/* > ./bin/${dirdate}/sha256sum.txt
 
